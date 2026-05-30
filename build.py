@@ -51,6 +51,26 @@ def _strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _extract_image(entry) -> str:
+    """Best-effort thumbnail URL from an RSS/Atom entry."""
+    for key in ("media_content", "media_thumbnail"):
+        for m in entry.get(key, []) or []:
+            if m.get("url"):
+                return m["url"]
+    for l in entry.get("links", []) or []:
+        if l.get("rel") == "enclosure" and "image" in (l.get("type") or ""):
+            return l.get("href", "")
+    for field in ("content", "summary", "description"):
+        val = entry.get(field)
+        if isinstance(val, list) and val:
+            val = val[0].get("value", "")
+        if isinstance(val, str):
+            m = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', val)
+            if m:
+                return m.group(1)
+    return ""
+
+
 def _parse_date(entry) -> datetime | None:
     for key in ("published_parsed", "updated_parsed"):
         st = entry.get(key)
@@ -79,6 +99,7 @@ def fetch_rss(src) -> list[dict]:
             "section": src["section"],
             "weight": src.get("weight", 1.0),
             "published": _parse_date(e),
+            "image": _extract_image(e),
         })
     return items
 
@@ -120,7 +141,7 @@ def fetch_crossref(src) -> list[dict]:
         items.append({
             "title": title, "link": link, "summary": summary[:400],
             "source": src["name"], "section": src["section"],
-            "weight": src.get("weight", 1.0), "published": pub,
+            "weight": src.get("weight", 1.0), "published": pub, "image": "",
         })
     return items
 
@@ -191,6 +212,55 @@ def load_feedback() -> dict:
 # --------------------------------------------------------------------------- #
 # Rendering
 # --------------------------------------------------------------------------- #
+# Topical emoji for the fallback tile. Checked in order; first match wins.
+EMOJI_RULES = [
+    (("ufo", "alien"), "🛸"), (("opioid", "drug", "fentanyl"), "💊"),
+    (("bitcoin", "crypto", "blockchain", "token", "defi"), "🪙"),
+    (("hedge fund", "short seller", "activist"), "🦈"),
+    (("etf", "index fund", "passive"), "📈"),
+    (("ipo", "spac", "listing", "going public"), "🚀"),
+    (("bubble", "mania", "frenzy"), "🫧"),
+    (("housing", "mortgage", "real estate", "rent", "home price"), "🏠"),
+    (("dividend", "payout", "buyback", "repurchase"), "💸"),
+    (("analyst", "eps", "earnings", "forecast", "guidance", "expectations"), "📊"),
+    (("machine learning", "llm", "large language", "neural", "gpt", "agent", "artificial intel"), "🤖"),
+    (("bank", "deposit", "lending", "credit"), "🏦"),
+    (("inflation", "cpi", "price level"), "🎈"),
+    (("repo", "reverse repo", "money market"), "🔁"),
+    (("survey", "questionnaire"), "📋"),
+    (("behavioral", "psychology", "money illusion", "mental account", "present bias", "bias"), "🧠"),
+    (("climate", "esg", "carbon", "green", "sustainab"), "🌱"),
+    (("oil", "energy", "gas", "petroleum"), "🛢️"),
+    (("gold", "silver", "commodit"), "🥇"),
+    (("tax", "irs", "fiscal"), "🧾"),
+    (("fraud", "manipulation", "insider", "scandal"), "🕵️"),
+    (("fed", "monetary", "interest rate", "central bank", "fomc"), "🏛️"),
+    (("option", "derivative", "volatility", "vix", "futures"), "🎲"),
+    (("momentum", "trading strateg", "alpha", "return predict"), "🏎️"),
+    (("tariff", "trade war", "china", "export", "import", "supply chain"), "🚢"),
+    (("bond", "treasury", "yield", "fixed income", "duration"), "📜"),
+    (("insurance", "annuit", "pension"), "☂️"),
+    (("labor", "wage", "employment", "worker", "job"), "👷"),
+    (("emotion", "sentiment", "mood", "fear", "greed"), "❤️"),
+    (("gender", "fertility", "marriage", "family"), "👶"),
+    (("election", "politic", "vote", "policy", "regulat"), "🗳️"),
+    (("network", "graph", "interconnect", "systemic"), "🕸️"),
+    (("quantum", "physics", "cosmos", "universe", "galaxy", "black hole"), "🌌"),
+    (("brain", "neuro", "cognit", "mind"), "🧬"),
+]
+SECTION_EMOJI = {
+    "papers": "📄", "journals": "📚", "macro": "🌍", "chatter": "💬", "periphery": "✨",
+}
+
+
+def pick_emoji(item) -> str:
+    hay = (item["title"] + " " + item["summary"]).lower()
+    for keys, emo in EMOJI_RULES:
+        if any(k in hay for k in keys):
+            return emo
+    return SECTION_EMOJI.get(item["section"], "🔎")
+
+
 def render(sections_items, build_time, feedback) -> str:
     date_str = build_time.strftime("%A, %B %-d, %Y") if sys.platform != "win32" \
         else build_time.strftime("%A, %B %d, %Y")
@@ -211,17 +281,27 @@ def render(sections_items, build_time, feedback) -> str:
             up_cls = " voted" if prior == "up" else ""
             dn_cls = " voted" if prior == "down" else ""
             summary = html.escape(it["summary"])
+            hue = int(iid[:6], 16) % 360
+            emoji = pick_emoji(it)
+            img = it.get("image") or ""
+            img_tag = (
+                f'<img src="{html.escape(img)}" loading="lazy" alt="" '
+                f'onerror="this.remove()">' if img.startswith("http") else ""
+            )
             cards.append(f"""
       <article class="card" data-id="{iid}" data-source="{html.escape(it['source'])}">
-        <h3><a href="{html.escape(it['link'])}" target="_blank" rel="noopener">{html.escape(it['title'])}</a></h3>
-        <p class="summary">{summary}</p>
-        <div class="meta">
-          <span class="src">{html.escape(it['source'])}</span>
-          <span class="age">{age}</span>
-          <span class="vote">
-            <button class="up{up_cls}" onclick="vote('{iid}','{html.escape(it['source'])}','up',this)">&#128077;</button>
-            <button class="down{dn_cls}" onclick="vote('{iid}','{html.escape(it['source'])}','down',this)">&#128078;</button>
-          </span>
+        <div class="thumb" style="--h:{hue}"><span class="emoji">{emoji}</span>{img_tag}</div>
+        <div class="body">
+          <h3><a href="{html.escape(it['link'])}" target="_blank" rel="noopener">{html.escape(it['title'])}</a></h3>
+          <p class="summary">{summary}</p>
+          <div class="meta">
+            <span class="src">{html.escape(it['source'])}</span>
+            <span class="age">{age}</span>
+            <span class="vote">
+              <button class="up{up_cls}" onclick="vote('{iid}','{html.escape(it['source'])}','up',this)">&#128077;</button>
+              <button class="down{dn_cls}" onclick="vote('{iid}','{html.escape(it['source'])}','down',this)">&#128078;</button>
+            </span>
+          </div>
         </div>
       </article>""")
         blocks.append(
@@ -265,7 +345,22 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   section h2 {{ font-size:1.05rem; color:var(--accent); border-bottom:1px solid var(--line);
                padding-bottom:0.3rem; margin:1.5rem 0 0.8rem; }}
   .card {{ background:var(--card); border:1px solid var(--line); border-radius:8px;
-           padding:0.8rem 1rem; margin-bottom:0.7rem; }}
+           padding:0.7rem 0.8rem; margin-bottom:0.7rem;
+           display:flex; gap:0.85rem; align-items:flex-start; }}
+  .card .body {{ flex:1; min-width:0; }}
+  .thumb {{ position:relative; flex:0 0 84px; width:84px; height:84px;
+            border-radius:12px; overflow:hidden; display:flex;
+            align-items:center; justify-content:center;
+            background:
+              radial-gradient(circle at 30% 25%, rgba(255,255,255,0.55), transparent 55%),
+              linear-gradient(135deg,
+                hsl(var(--h),85%,60%), hsl(calc(var(--h) + 75),90%,48%));
+            box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08); transition:transform .12s; }}
+  .card:hover .thumb {{ transform:rotate(-3deg) scale(1.06); }}
+  .thumb .emoji {{ font-size:3rem; line-height:1;
+                   filter:drop-shadow(0 2px 3px rgba(0,0,0,0.35)); }}
+  .thumb img {{ position:absolute; inset:0; width:100%; height:100%;
+                object-fit:cover; }}
   .card h3 {{ font-size:0.95rem; margin:0 0 0.3rem; line-height:1.35; }}
   .card h3 a {{ color:var(--link); text-decoration:none; }}
   .card h3 a:hover {{ text-decoration:underline; }}
