@@ -1,0 +1,19 @@
+{
+  "_comment": "Manual-tuning knobs. source_weights overrides per-source priority by name. boost_keywords add points when found in title/summary (your active research themes). block_keywords demote noise. Feedback (feedback.json) is layered on top automatically.",
+  "source_weights": {},
+  "boost_keywords": {
+    "analyst": 3, "EPS": 4, "earnings": 2, "forecast": 2, "expectations": 2,
+    "hedge fund": 4, "financial stability": 3, "systemic": 2, "Form PF": 4,
+    "ETF": 3, "mutual fund": 2, "flows": 2, "demand-based": 3,
+    "valuation": 2, "EVA": 3, "payout": 2, "buyback": 2, "dividend": 2,
+    "IPO": 3, "issuance": 2,
+    "behavioral": 2, "money illusion": 3, "mental accounting": 3, "present bias": 2,
+    "machine learning": 2, "large language model": 2, "LLM": 2, "AI": 1,
+    "bubble": 2, "anomaly": 2, "cross-section": 2, "momentum": 2, "factor": 1,
+    "housing": 2, "mortgage": 2, "repo": 2, "crypto": 1, "bitcoin": 1,
+    "survey": 1, "CFO": 2, "fintech": 1, "concentration": 1
+  },
+  "block_keywords": {
+    "horoscope": 10, "sponsored": 5, "advertisement": 8
+  }
+}

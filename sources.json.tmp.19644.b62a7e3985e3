@@ -1,0 +1,31 @@
+{
+  "_comment": "Each source: name, url, section, weight (manual base priority). type 'rss' or 'crossref'. Sections render in the order defined in build.py SECTIONS. Edit freely; dead feeds are reported in the build log and can be pruned.",
+  "sources": [
+    {"name": "NBER Working Papers", "type": "rss", "url": "https://www.nber.org/rss/new.xml", "section": "papers", "weight": 1.4},
+    {"name": "arXiv q-fin", "type": "rss", "url": "https://rss.arxiv.org/rss/q-fin", "section": "papers", "weight": 1.0},
+    {"name": "arXiv econ", "type": "rss", "url": "https://rss.arxiv.org/rss/econ", "section": "papers", "weight": 0.9},
+    {"name": "Fed FEDS Notes", "type": "rss", "url": "https://www.federalreserve.gov/feeds/feds_notes.xml", "section": "papers", "weight": 1.1},
+    {"name": "BIS Working Papers", "type": "rss", "url": "https://www.bis.org/doclist/wppubls.rss", "section": "papers", "weight": 1.0},
+
+    {"name": "Journal of Finance", "type": "crossref", "url": "1540-6261", "section": "journals", "weight": 1.5},
+    {"name": "Review of Financial Studies", "type": "crossref", "url": "1465-7368", "section": "journals", "weight": 1.4},
+    {"name": "Journal of Financial Economics", "type": "crossref", "url": "0304-405X", "section": "journals", "weight": 1.4},
+    {"name": "Management Science", "type": "crossref", "url": "0025-1909", "section": "journals", "weight": 1.0},
+    {"name": "American Economic Review", "type": "crossref", "url": "0002-8282", "section": "journals", "weight": 1.2},
+    {"name": "Journal of Financial and Quantitative Analysis", "type": "crossref", "url": "0022-1090", "section": "journals", "weight": 1.0},
+
+    {"name": "Federal Reserve Press", "type": "rss", "url": "https://www.federalreserve.gov/feeds/press_all.xml", "section": "macro", "weight": 1.0},
+    {"name": "FT Alphaville", "type": "rss", "url": "https://www.ft.com/alphaville?format=rss", "section": "macro", "weight": 1.1},
+    {"name": "Reuters Business", "type": "rss", "url": "https://feeds.reuters.com/reuters/businessNews", "section": "macro", "weight": 0.8},
+    {"name": "VoxEU / CEPR", "type": "rss", "url": "https://cepr.org/rss/VoxEU.xml", "section": "macro", "weight": 1.0},
+
+    {"name": "Marginal Revolution", "type": "rss", "url": "https://marginalrevolution.com/feed", "section": "chatter", "weight": 1.1},
+    {"name": "r/AcademicEconomics", "type": "rss", "url": "https://www.reddit.com/r/AcademicEconomics/.rss", "section": "chatter", "weight": 0.7},
+    {"name": "r/finance", "type": "rss", "url": "https://www.reddit.com/r/finance/.rss", "section": "chatter", "weight": 0.6},
+
+    {"name": "Quanta Magazine", "type": "rss", "url": "https://api.quantamagazine.org/feed/", "section": "periphery", "weight": 1.0},
+    {"name": "Hacker News Front Page", "type": "rss", "url": "https://hnrss.org/frontpage?points=150", "section": "periphery", "weight": 0.8},
+    {"name": "Nautilus", "type": "rss", "url": "https://nautil.us/feed/", "section": "periphery", "weight": 0.8},
+    {"name": "Aeon", "type": "rss", "url": "https://aeon.co/feed.rss", "section": "periphery", "weight": 0.7}
+  ]
+}
