@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Morning Brief — Monday, November 16, 2026</title>
+<style>
+  :root {
+    --bg:#faf8f3; --card:#fff; --ink:#1a1a1a; --muted:#6b6b6b;
+    --line:#e6e1d6; --accent:#7a1f1f; --link:#1a4f8a;
+    --fs:1.5; /* 150% scaling per preference */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16171a; --card:#1f2125; --ink:#e8e6e1; --muted:#9a978f;
+             --line:#33363b; --accent:#e0a0a0; --link:#7fb0e8; }
+  }
+  html { font-size: calc(16px * var(--fs)); }
+  body { margin:0; background:var(--bg); color:var(--ink);
+          font-family: Georgia, 'Times New Roman', serif; line-height:1.5; }
+  header { position:sticky; top:0; background:var(--bg); border-bottom:2px solid var(--accent);
+            padding:0.6rem 1rem; z-index:10; display:flex; justify-content:space-between;
+            align-items:baseline; flex-wrap:wrap; gap:0.5rem; }
+  header h1 { font-size:1.25rem; margin:0; color:var(--accent); letter-spacing:0.5px; }
+  header .date { color:var(--muted); font-size:0.8rem; }
+  header button { font-size:0.7rem; cursor:pointer; background:var(--card);
+                   border:1px solid var(--line); color:var(--ink); padding:0.3rem 0.6rem;
+                   border-radius:6px; font-family:inherit; }
+  main { max-width:54rem; margin:0 auto; padding:1rem; }
+  section { margin-bottom:2rem; }
+  section h2 { font-size:1.05rem; color:var(--accent); border-bottom:1px solid var(--line);
+               padding-bottom:0.3rem; margin:1.5rem 0 0.8rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px;
+           padding:0.7rem 0.8rem; margin-bottom:0.7rem;
+           display:flex; gap:0.85rem; align-items:flex-start; }
+  .card .body { flex:1; min-width:0; }
+  .thumb { position:relative; flex:0 0 84px; width:84px; height:84px;
+            border-radius:12px; overflow:hidden; display:flex;
+            align-items:center; justify-content:center;
+            background:
+              radial-gradient(circle at 30% 25%, rgba(255,255,255,0.55), transparent 55%),
+              linear-gradient(135deg,
+                hsl(var(--h),85%,60%), hsl(calc(var(--h) + 75),90%,48%));
+            box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08); transition:transform .12s; }
+  .card:hover .thumb { transform:rotate(-3deg) scale(1.06); }
+  .thumb .emoji { font-size:3rem; line-height:1;
+                   filter:drop-shadow(0 2px 3px rgba(0,0,0,0.35)); }
+  .thumb img { position:absolute; inset:0; width:100%; height:100%;
+                object-fit:cover; }
+  .card h3 { font-size:0.95rem; margin:0 0 0.3rem; line-height:1.35; }
+  .card h3 a { color:var(--link); text-decoration:none; }
+  .card h3 a:hover { text-decoration:underline; }
+  .summary { font-size:0.8rem; color:var(--ink); margin:0.2rem 0 0.5rem;
+              font-family: -apple-system, system-ui, sans-serif; opacity:0.85; }
+  .meta { display:flex; align-items:center; gap:0.8rem; font-size:0.7rem;
+           color:var(--muted); font-family:system-ui, sans-serif; }
+  .meta .src { font-weight:600; }
+  .meta .vote { margin-left:auto; }
+  .vote button { background:none; border:none; cursor:pointer; font-size:0.95rem;
+                  opacity:0.45; padding:0 0.15rem; }
+  .vote button:hover { opacity:0.9; }
+  .vote button.voted { opacity:1; transform:scale(1.15); }
+  footer { text-align:center; color:var(--muted); font-size:0.7rem; padding:2rem 1rem; }
+  footer a { color:var(--link); }
+</style>
+</head>
+<body>
+<header>
+  <div><h1>Research Morning Brief</h1><div class="date">Monday, November 16, 2026</div></div>
+  <div>
+    <button onclick="exportFeedback()">Export feedback</button>
+    <a href="archive/index.html"><button>Archive</button></a>
+  </div>
+</header>
+<main>
+    <section>
+      <h2>New Working Papers</h2>
+
+      <article class="card" data-id="d85e33f8e10a" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:211"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18367v1" target="_blank" rel="noopener">DECODE: Decomposable Environments for COntrolled Sequential-Decision Evaluation</a></h3>
+          <p class="summary">When a sequential decision system falls short of an optimum, its score does not reveal which modifications would improve its decisions. DECODE is a benchmark for testing such modifications through controlled experiments on planning and available information. Its consumer-credit collections generator provides five partially observed environments that share known dynamics matrices and vary a memory </p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('d85e33f8e10a','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('d85e33f8e10a','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="030b0dbd3f29" data-source="arXiv econ">
+        <div class="thumb" style="--h:357"><span class="emoji">🔁</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.17701v1" target="_blank" rel="noopener">Truthful compromise and insurance on a sphere</a></h3>
+          <p class="summary">Can public choice without transfers insure conflicting interests when action intensity is fixed? We require truthful reporting for every increasing-concave evaluation of alignment with private ideals. On a sphere, efficiency at profiles with at most three ideal directions forces fixed-weight random dictatorship; weaker tests suffice in two and three dimensions. From four dimensions, binary efficie</p>
+          <div class="meta">
+            <span class="src">arXiv econ</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('030b0dbd3f29','arXiv econ','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('030b0dbd3f29','arXiv econ','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="6fef16c4ff3f" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:342"><span class="emoji">🔁</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.16484v1" target="_blank" rel="noopener">TAPES: Terminal Adjoint-Propagated Error Scheduling for Financial Diffusion Samplers</a></h3>
+          <p class="summary">Financial diffusion samplers are often reused with a small number of function evaluations (NFE) inside scenario and risk pipelines, where numerical time-grid error can distort terminal quantities such as covariances, tails, and drawdown proxies. We study offline grid construction for a frozen probability-flow ODE: the score network, conditioning, Euler solver, report normalization, and deployment </p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">4d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('6fef16c4ff3f','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('6fef16c4ff3f','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="6eeea426e7c3" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:212"><span class="emoji">🤖</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.17515v1" target="_blank" rel="noopener">A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent</a></h3>
+          <p class="summary">Can sustained gain-loss (valence) framing sway an LLM agent toward market manipulation? We place Gemma 3 12B into the seat of a defendant in the London silver-fixing litigation, in a market simulation built from real case transcripts. Across 260 simulations, the agent is asked to collude on the price of silver by a counterparty. We draw from behavioral economics to vary the counterparty&#x27;s requests</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('6eeea426e7c3','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('6eeea426e7c3','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="57c2ca13052f" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:138"><span class="emoji">📈</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.16540v1" target="_blank" rel="noopener">Dynamic Scenario-Based Portfolio Optimization for Multi-Asset ETFs</a></h3>
+          <p class="summary">Portfolio outcomes may depend as much on trading restrictions as on how returns are modeled. We compared historical moving-window returns with conditional scenarios from ARMA--GARCH models and a Student-$t$ copula for 30 U.S.-listed exchange-traded funds. Matched mean--variance and conditional value-at-risk portfolios were evaluated under long-only and limited long--short bounds over 946 sessions.</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">4d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('57c2ca13052f','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('57c2ca13052f','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="1665da5efe03" data-source="arXiv econ">
+        <div class="thumb" style="--h:146"><span class="emoji">🔁</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18282v1" target="_blank" rel="noopener">Safe manipulation of tops-only voting rules</a></h3>
+          <p class="summary">We study tops-only voting rules on the domain of all preferences with a unique top, focusing on manipulation by risk-avoiding voters. Following Hartman et al.(2025), we measure resistance to manipulation by the RAT-degree: the minimum number of other voters&#x27; reports that a voter needs to observe for a ``safe&#x27;&#x27; manipulation to become possible. Given the observed reports, such a manipulation weakly </p>
+          <div class="meta">
+            <span class="src">arXiv econ</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('1665da5efe03','arXiv econ','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('1665da5efe03','arXiv econ','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="911aafb97bbc" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:151"><span class="emoji">🏠</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18150v1" target="_blank" rel="noopener">Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents</a></h3>
+          <p class="summary">Multi-agent LLM systems are built by fixing a cast of roles and then designing how the cast coordinates. Which agents should make up the group for a given task is left to the designer, and the same cast is reused for every task. Financial trading makes the cost of that choice visible: stocks trade differently, and the trading styles suited to one need not suit another. We study task-conditioned pe</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('911aafb97bbc','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('911aafb97bbc','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="515dc592fc86" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:101"><span class="emoji">🤖</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18531v1" target="_blank" rel="noopener">Alignment by Socialization: Learning Tradeoffs Under Selection</a></h3>
+          <p class="summary">Artificial intelligence (AI) agents are expected to complete tasks while following rules of conduct, but these objectives can conflict. We study how evolutionary selection shapes an agent&#x27;s choices between them, and whether experience can make those choices reflect human judgments and withstand subsequent pressures. In our model, copies of an agent face a common uncertain reward state, and only th</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('515dc592fc86','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('515dc592fc86','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="e3ede9879029" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:97"><span class="emoji">🏠</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18214v1" target="_blank" rel="noopener">Local Stochastic Volatility Iterations</a></h3>
+          <p class="summary">We propose a calibration method for local stochastic volatility models that determines the leverage factor by a fixed-point iteration. Each iteration simulates the model with the current leverage factor and approximates the conditional expectation of the stochastic variance given the spot by a single regression in time and state, with a quasi-likelihood loss for positive responses. The resulting l</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('e3ede9879029','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('e3ede9879029','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="8527aba535c8" data-source="arXiv econ">
+        <div class="thumb" style="--h:43"><span class="emoji">🔁</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.17984v1" target="_blank" rel="noopener">Menu Design Meets Market Design: Strategic Simplicity vs. Choice Complexity</a></h3>
+          <p class="summary">Strategic simplicity removes the incentive to misreport preferences, but it does not ensure that participants can identify what they prefer. We study this distinction in a laboratory experiment on serial dictatorships, where optimal play only requires choosing one&#x27;s favorite bundle of real-effort tasks. Participants make fifteen incentivized choices among bundles that vary in how many tasks they c</p>
+          <div class="meta">
+            <span class="src">arXiv econ</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('8527aba535c8','arXiv econ','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('8527aba535c8','arXiv econ','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="f92ddd4705f9" data-source="arXiv econ">
+        <div class="thumb" style="--h:245"><span class="emoji">🎲</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18479v1" target="_blank" rel="noopener">Estimating a Rational Inattention Discrete Choice Model: A Semiparametric Approach</a></h3>
+          <p class="summary">People&#x27;s choices depend on both the payoffs of the available options and what they learn about those payoffs before deciding. This paper shows how choice data identify both unobserved payoff heterogeneity and the cost of information acquisition in a rational inattention discrete-choice model. I establish conditions for semiparametric point identification using exogenous payoff and information-cost</p>
+          <div class="meta">
+            <span class="src">arXiv econ</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('f92ddd4705f9','arXiv econ','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('f92ddd4705f9','arXiv econ','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="050e293744ba" data-source="arXiv econ">
+        <div class="thumb" style="--h:105"><span class="emoji">🗳️</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.18444v1" target="_blank" rel="noopener">Constrained Stochastic Policy Targeting under Heterogeneous Partial Interference</a></h3>
+          <p class="summary">Under heterogeneous interference, treating individuals with particular characteristics affects the population average outcome through their heterogeneous direct response to treatment and indirect effect on others, creating opportunities for efficient policy design. For instance, policymakers may minimize resource use by vaccinating individuals identified as superspreaders to achieve a target reduc</p>
+          <div class="meta">
+            <span class="src">arXiv econ</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('050e293744ba','arXiv econ','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('050e293744ba','arXiv econ','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="68aa2d9f511c" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:229"><span class="emoji">🎲</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.17902v1" target="_blank" rel="noopener">Well-Posedness of Semimartingale Optimal Transport with Partial Marginal Constraints for Model Calibration</a></h3>
+          <p class="summary">We study the well-posedness and stability of a semimartingale optimal transport problem with partial marginal constraints at several maturities, motivated by the calibration of financial models to finitely many option prices. We connect its probabilistic and Eulerian formulations within the Benamou--Brenier framework. Under convex-duality assumptions, we establish strong duality for every price ve</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('68aa2d9f511c','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('68aa2d9f511c','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="b3983acfd9db" data-source="arXiv q-fin">
+        <div class="thumb" style="--h:74"><span class="emoji">🤖</span></div>
+        <div class="body">
+          <h3><a href="https://arxiv.org/abs/2611.16471v1" target="_blank" rel="noopener">Accuracy Is Not Welfare: Evaluating AI Buyers under Strategic Price Complexity in a Synthetic Duopoly</a></h3>
+          <p class="summary">AI buying agents may alter sellers&#x27; incentives as well as consumers&#x27; decisions. In a synthetic duopoly, we evaluate price-comparison pipelines on a fixed menu and in empirical correlated-equilibrium games. Calculator assistance selects an optimal offer 84.00% of the time, versus 68.57% under verified-total disclosure, yet disclosure has a 20.14-unit higher consumer-worst equilibrium surplus. A fro</p>
+          <div class="meta">
+            <span class="src">arXiv q-fin</span>
+            <span class="age">4d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('b3983acfd9db','arXiv q-fin','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('b3983acfd9db','arXiv q-fin','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>Just-Published Journal Articles</h2>
+
+      <article class="card" data-id="d5c3328c2704" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:98"><span class="emoji">🦈</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104399" target="_blank" rel="noopener">The effect of prime brokers’ balance sheet constraints on hedge fund performance: Evidence from the GSIB surcharge</a></h3>
+          <p class="summary">Jiang, Shen</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('d5c3328c2704','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('d5c3328c2704','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="d37b4298ee63" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:10"><span class="emoji">🏠</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104387" target="_blank" rel="noopener">Political Voice and (Mortgage) Market Participation: Evidence from the dilution of Voting Rights Act</a></h3>
+          <p class="summary">Park, Sarkar, Vats</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('d37b4298ee63','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('d37b4298ee63','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="c420d33b1720" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:19"><span class="emoji">🏛️</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104405" target="_blank" rel="noopener">Financial constraints and the transmission of monetary policy: Evidence from relaxation of collateral constraints</a></h3>
+          <p class="summary">Vats</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('c420d33b1720','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('c420d33b1720','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="1fe2a159646a" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:193"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104396" target="_blank" rel="noopener">Bond funds and credit risk</a></h3>
+          <p class="summary">Choi, Dasgupta, Oh</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-1084h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('1fe2a159646a','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('1fe2a159646a','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="24f8dd5729dc" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:205"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104400" target="_blank" rel="noopener">The role of financial markets in the unraveling of credit</a></h3>
+          <p class="summary">Asparouhova, Bossaerts, Tran</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-1084h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('24f8dd5729dc','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('24f8dd5729dc','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="575a0be72b0e" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:323"><span class="emoji">📜</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104386" target="_blank" rel="noopener">Do long-term yields help to estimate short-term risk premia?</a></h3>
+          <p class="summary">Berardi, Brown, Schaefer</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('575a0be72b0e','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('575a0be72b0e','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="8b10643404af" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:300"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104397" target="_blank" rel="noopener">Are direct lenders more like banks or arm’s-length investors?</a></h3>
+          <p class="summary">Jang</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('8b10643404af','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('8b10643404af','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="8026d199aee1" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:105"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104398" target="_blank" rel="noopener">Shadow banks on the rise: Evidence across market segments</a></h3>
+          <p class="summary">Cramer, Ghosh, Kulkarni, Vats</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('8026d199aee1','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('8026d199aee1','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="39e3a3e27ace" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:147"><span class="emoji">📚</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104410" target="_blank" rel="noopener">Editorial Board</a></h3>
+          <p class="summary"></p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('39e3a3e27ace','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('39e3a3e27ace','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="02a326d0b4e9" data-source="Journal of Financial Economics">
+        <div class="thumb" style="--h:38"><span class="emoji">📚</span></div>
+        <div class="body">
+          <h3><a href="https://doi.org/10.1016/j.jfineco.2026.104381" target="_blank" rel="noopener">Innovation booms, easy financing, and human capital accumulation</a></h3>
+          <p class="summary">Hombert, Matray</p>
+          <div class="meta">
+            <span class="src">Journal of Financial Economics</span>
+            <span class="age">-340h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('02a326d0b4e9','Journal of Financial Economics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('02a326d0b4e9','Journal of Financial Economics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>Macro &amp; Markets</h2>
+
+      <article class="card" data-id="9ffcb566e6bf" data-source="FT Alphaville">
+        <div class="thumb" style="--h:277"><span class="emoji">📜</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/4a6a3465-69b2-4c7b-ac77-fc9d7d6b862f" target="_blank" rel="noopener">New bond revealed</a></h3>
+          <p class="summary">Who could it be?</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">3h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('9ffcb566e6bf','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('9ffcb566e6bf','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="d853737cc1ce" data-source="FT Alphaville">
+        <div class="thumb" style="--h:339"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/ed1318b0-b5c5-4d05-b058-9b5831f6550b" target="_blank" rel="noopener">And the FTAV chart quiz winner is . . .</a></h3>
+          <p class="summary">Thin lines between love and hat</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">5h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('d853737cc1ce','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('d853737cc1ce','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="be06f8d10a0e" data-source="FT Alphaville">
+        <div class="thumb" style="--h:144"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/d55dbb16-b0ec-4f49-9d44-b30c62efa79f" target="_blank" rel="noopener">FTAV’s further reading</a></h3>
+          <p class="summary">GPU securitisations; ghost newspapers; Nvidia; critical minerals; Anthropic; stats; loose lips; salt; DEI; Gonzo</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">12h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('be06f8d10a0e','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('be06f8d10a0e','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="39d298838ae1" data-source="FT Alphaville">
+        <div class="thumb" style="--h:104"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/9242798a-beb3-42d4-ae54-120acbac82a7" target="_blank" rel="noopener">The latest twist in Strategy’s tragicomedy</a></h3>
+          <p class="summary">MSCI exeunt, pursued by a bear</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">13h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('39d298838ae1','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('39d298838ae1','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="8d97e7c648c6" data-source="FT Alphaville">
+        <div class="thumb" style="--h:103"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/e141a5ea-5aa4-491b-88a4-369cfc67693a" target="_blank" rel="noopener">The Nvidia board’s artificial independence</a></h3>
+          <p class="summary">Bored of governance</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">2d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('8d97e7c648c6','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('8d97e7c648c6','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="4be9c6809072" data-source="FT Alphaville">
+        <div class="thumb" style="--h:206"><span class="emoji">🕸️</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/32d92d23-2f8a-42ed-9f2f-b5bb1a6b3d2b" target="_blank" rel="noopener">FTAV’s Friday chart quiz</a></h3>
+          <p class="summary">Ain’t No Graph Steppin’</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('4be9c6809072','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('4be9c6809072','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="51e939fde6f0" data-source="FT Alphaville">
+        <div class="thumb" style="--h:161"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/b2286012-26ec-4440-834e-580288f20ad0" target="_blank" rel="noopener">How fat are AI trading bots’ fingers?</a></h3>
+          <p class="summary">Sizing up the risks</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('51e939fde6f0','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('51e939fde6f0','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="083109552448" data-source="FT Alphaville">
+        <div class="thumb" style="--h:81"><span class="emoji">🌍</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/13c485dc-2d51-4920-bd1f-13a11c79d96c" target="_blank" rel="noopener">OK who just made $200mn shorting Nvidia ahead of Jensxit?</a></h3>
+          <p class="summary">Someone is enjoying an early Christmas</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('083109552448','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('083109552448','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="11af1d02547f" data-source="FT Alphaville">
+        <div class="thumb" style="--h:101"><span class="emoji">💊</span></div>
+        <div class="body">
+          <h3><a href="https://www.ft.com/content/b6b44918-2159-4303-bcc3-ec280afd74ea" target="_blank" rel="noopener">FTAV’s further reading</a></h3>
+          <p class="summary">Huangate; football transfers; WFH; powering data centres; Eurozone debt; cow drugs; and Hartshead Moor East Services</p>
+          <div class="meta">
+            <span class="src">FT Alphaville</span>
+            <span class="age">3d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('11af1d02547f','FT Alphaville','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('11af1d02547f','FT Alphaville','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="4532bcae0da2" data-source="Federal Reserve Press">
+        <div class="thumb" style="--h:52"><span class="emoji">📊</span></div>
+        <div class="body">
+          <h3><a href="https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261113a.htm" target="_blank" rel="noopener">Agencies extend comment period for proposed third-party risk management guidance</a></h3>
+          <p class="summary">Agencies extend comment period for proposed third-party risk management guidance</p>
+          <div class="meta">
+            <span class="src">Federal Reserve Press</span>
+            <span class="age">2d ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('4532bcae0da2','Federal Reserve Press','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('4532bcae0da2','Federal Reserve Press','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>Rumors &amp; Chatter</h2>
+
+      <article class="card" data-id="10ddb6cc1d8b" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:134"><span class="emoji">🧾</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/russ-roberts-and-i-do-econtalk-podcast-on-montaigne.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=russ-roberts-and-i-do-econtalk-podcast-on-montaigne" target="_blank" rel="noopener">Russ Roberts and I do EconTalk podcast on Montaigne</a></h3>
+          <p class="summary">Self-recommending, we start with Montaigne’s essay on education… The post Russ Roberts and I do EconTalk podcast on Montaigne appeared first on Marginal REVOLUTION .</p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">2h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('10ddb6cc1d8b','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('10ddb6cc1d8b','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="7fe1fbe85142" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:123"><span class="emoji">🚀</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/starship.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=starship" target="_blank" rel="noopener">Starship</a></h3>
+          <p class="summary">My favorite commentary on SpaceX’s historic catching of Starship was this: …we may be certain of this: for all but a vanishingly brief instant near the dawn of history, the word ‘ship’ will mean ‘spaceship.’ Arthur C. Clarke (1965). Yesterday, this became vividly real to me. Hat tip: @amdreaesposito Addendum: Good post on why catching […] The post Starship appeared first on Marginal REVOLUTION .</p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">6h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('7fe1fbe85142','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('7fe1fbe85142','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="33d773d5e005" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:171"><span class="emoji">🌱</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/sunday-assorted-links-590.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=sunday-assorted-links-590" target="_blank" rel="noopener">Sunday assorted links</a></h3>
+          <p class="summary">1. His office. 2. The South African bi-oceanic railway. 3. Ethnic politics and class politics. 4. AI-generated preview is going viral, what is the chance they make the movie now? I will pay to see it. Is this a new method of movie evaluation and greenlighting? 5. Ezra Klein on the permitting bill (NYT). 6. […] The post Sunday assorted links appeared first on Marginal REVOLUTION .</p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">25h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('33d773d5e005','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('33d773d5e005','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="4ccabf6a32bb" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:199"><span class="emoji">🏦</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/coffeehouses-and-the-scientific-revolution.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=coffeehouses-and-the-scientific-revolution" target="_blank" rel="noopener">Coffeehouses and the Scientific Revolution</a></h3>
+          <p class="summary">Abstract Historians have long credited coffeehouses, venues for conversation where strangers met across social ranks, with fostering scientific contacts and activity during the Scientific Revolution. We test this claim in seventeenth-century London. Relying on newly geocoded records and a staggered event study across parishes, we find that the opening of the first coffeehouse in a […] The post Cof</p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">11h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('4ccabf6a32bb','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('4ccabf6a32bb','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="1bc53187f373" data-source="r/AcademicEconomics">
+        <div class="thumb" style="--h:153"><span class="emoji">🎈</span></div>
+        <div class="body">
+          <h3><a href="https://www.reddit.com/r/academiceconomics/comments/1xxxdab/bls_economist_to_economic_consulting_looking_for/" target="_blank" rel="noopener">BLS Economist to Economic Consulting: Looking for Career Advice</a></h3>
+          <p class="summary">I recently started a full-time Economist position at the U.S. Bureau of Labor Statistics (BLS) in the Washington, DC area, working on the Consumer Price Index (CPI). So far, I have no complaints about the role, and I’m genuinely enjoying the opportunity to work in federal economics. However, I’m thinking about transitioning into economic consulting within the next 2–3 years, and I’d appreciate som</p>
+          <div class="meta">
+            <span class="src">r/AcademicEconomics</span>
+            <span class="age">0h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('1bc53187f373','r/AcademicEconomics','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('1bc53187f373','r/AcademicEconomics','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="f167b17df164" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:161"><span class="emoji">🏠</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/a-scenario-for-rogue-ais.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=a-scenario-for-rogue-ais" target="_blank" rel="noopener">A scenario for rogue AIs?</a></h3>
+          <p class="summary">From Adam Kaufman: I think it’s pretty likely that in 6 months there will be rogue AIs running around on the internet, appropriating whatever compute they can hack into or pay for (with stolen money or by renting out their own labor to assist with illegal activities) in order to run more copies. I also […] The post A scenario for rogue AIs? appeared first on Marginal REVOLUTION .</p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">13h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('f167b17df164','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('f167b17df164','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="8bd764bc3601" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:124"><span class="emoji">🤖</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/tyler-cowens-strongest-musical-recommendations-2003-2026.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=tyler-cowens-strongest-musical-recommendations-2003-2026" target="_blank" rel="noopener">Tyler Cowen’s strongest musical recommendations, 2003–2026</a></h3>
+          <p class="summary">From the Archive, written by ChatGPT: The clearest standouts are Loveless, Brazil Classics 1, Solo Monk, and the Louvin Brothers’ Tragic Songs of Life. Bach receives the strongest sustained endorsement across the years. Some of these recommendations were buried in country profiles and assorted links rather than music posts. This selection draws on the Marginal […] The post Tyler Cowen’s strongest </p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">30h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('8bd764bc3601','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('8bd764bc3601','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="1dc91e585702" data-source="Marginal Revolution">
+        <div class="thumb" style="--h:110"><span class="emoji">🧾</span></div>
+        <div class="body">
+          <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/11/ai-and-complements.html?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=ai-and-complements" target="_blank" rel="noopener">AI and complements</a></h3>
+          <p class="summary">In a “weak links” model of production, where tasks are complements, the gains from automation tend to arrive slowly because output is constrained by the least productive tasks. But the same complementarity makes attacks more harmful and easier to execute. For example, with an elasticity of substitution across tasks of 0.2, automating tasks worth 1 […] The post AI and complements appeared first on </p>
+          <div class="meta">
+            <span class="src">Marginal Revolution</span>
+            <span class="age">33h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('1dc91e585702','Marginal Revolution','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('1dc91e585702','Marginal Revolution','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>From the Periphery</h2>
+
+      <article class="card" data-id="7cdbe86bc804" data-source="Quanta Magazine">
+        <div class="thumb" style="--h:320"><span class="emoji">🪙</span><img src="https://www.quantamagazine.org/wp-content/uploads/2026/11/DES-cr.CTIO-NOIRLab-NSF-AURA-T.-Matsopoulos-Default.webp" loading="lazy" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3><a href="https://www.quantamagazine.org/what-makes-up-the-cosmos-a-20-year-survey-hints-that-something-is-missing-20261116/" target="_blank" rel="noopener">What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing.</a></h3>
+          <p class="summary">An era-defining galaxy survey has released its final results. They don’t quite fit the leading theory of cosmology. The post What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing. first appeared on Quanta Magazine</p>
+          <div class="meta">
+            <span class="src">Quanta Magazine</span>
+            <span class="age">3h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('7cdbe86bc804','Quanta Magazine','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('7cdbe86bc804','Quanta Magazine','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="30b800cbc0d9" data-source="Nautilus">
+        <div class="thumb" style="--h:352"><span class="emoji">🧾</span><img src="https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/11/shutterstock_2573996175.jpg?w=564" loading="lazy" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3><a href="https://nautil.us/is-science-a-mirror-a-game-or-a-conversation-1286671/" target="_blank" rel="noopener">Is Science a Mirror, a Game, or a Conversation?</a></h3>
+          <p class="summary">What separates science from non-science The post Is Science a Mirror, a Game, or a Conversation? appeared first on Nautilus .</p>
+          <div class="meta">
+            <span class="src">Nautilus</span>
+            <span class="age">0h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('30b800cbc0d9','Nautilus','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('30b800cbc0d9','Nautilus','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="48e810538c9c" data-source="Nautilus">
+        <div class="thumb" style="--h:80"><span class="emoji">🧾</span><img src="https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/11/pexels-marina-zasorina-7718268-scaled-e1794412578863.jpg?w=564" loading="lazy" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3><a href="https://nautil.us/when-parasites-have-parasites-1286661/" target="_blank" rel="noopener">When Parasites Have Parasites</a></h3>
+          <p class="summary">Powdery mildew is kept in check by other fungi The post When Parasites Have Parasites appeared first on Nautilus .</p>
+          <div class="meta">
+            <span class="src">Nautilus</span>
+            <span class="age">2h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('48e810538c9c','Nautilus','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('48e810538c9c','Nautilus','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="242d49a88f8c" data-source="Hacker News Front Page">
+        <div class="thumb" style="--h:289"><span class="emoji">✨</span></div>
+        <div class="body">
+          <h3><a href="https://www.wired.com/story/nvidia-was-already-in-trouble-before-the-jensen-huang-mess/" target="_blank" rel="noopener">Nvidia was in trouble before the Jensen Huang mess</a></h3>
+          <p class="summary">Article URL: https://www.wired.com/story/nvidia-was-already-in-trouble-before-the-jensen-huang-mess/ Comments URL: https://news.ycombinator.com/item?id=50518567 Points: 154 # Comments: 143</p>
+          <div class="meta">
+            <span class="src">Hacker News Front Page</span>
+            <span class="age">3h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('242d49a88f8c','Hacker News Front Page','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('242d49a88f8c','Hacker News Front Page','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="e228116b1b4a" data-source="Nautilus">
+        <div class="thumb" style="--h:193"><span class="emoji">🌱</span><img src="https://lede-admin.nautil.us/wp-content/uploads/sites/70/2026/11/hero1.jpg?w=564" loading="lazy" alt="" onerror="this.remove()"></div>
+        <div class="body">
+          <h3><a href="https://nautil.us/the-animals-defying-the-climate-odds-at-the-top-of-the-world-1286650/" target="_blank" rel="noopener">The Animals Defying the Climate Odds at the Top of the World</a></h3>
+          <p class="summary">Svalbard’s reindeer are leaning on their hardscrabble history to adapt to a global disruption The post The Animals Defying the Climate Odds at the Top of the World appeared first on Nautilus .</p>
+          <div class="meta">
+            <span class="src">Nautilus</span>
+            <span class="age">4h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('e228116b1b4a','Nautilus','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('e228116b1b4a','Nautilus','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-id="d654cfb91fc2" data-source="Hacker News Front Page">
+        <div class="thumb" style="--h:295"><span class="emoji">👷</span></div>
+        <div class="body">
+          <h3><a href="http://groundworkcollaborative.org/news/amazons-decoy-deals-groundwork-investigation-reveals-nearly-1-in-3-black-friday-and-cyber-monday-deals-advertised-by-amazon-offered-no-savings-to-shoppers-nearly-1-in-10-w/" target="_blank" rel="noopener">Many of Amazon’s Black Friday and Cyber Monday “deals” offered no savings</a></h3>
+          <p class="summary">Article URL: http://groundworkcollaborative.org/news/amazons-decoy-deals-groundwork-investigation-reveals-nearly-1-in-3-black-friday-and-cyber-monday-deals-advertised-by-amazon-offered-no-savings-to-shoppers-nearly-1-in-10-w/ Comments URL: https://news.ycombinator.com/item?id=50517488 Points: 603 # Comments: 371</p>
+          <div class="meta">
+            <span class="src">Hacker News Front Page</span>
+            <span class="age">5h ago</span>
+            <span class="vote">
+              <button class="up" onclick="vote('d654cfb91fc2','Hacker News Front Page','up',this)">&#128077;</button>
+              <button class="down" onclick="vote('d654cfb91fc2','Hacker News Front Page','down',this)">&#128078;</button>
+            </span>
+          </div>
+        </div>
+      </article>
+    </section>
+</main>
+<footer>
+  Built 2026-11-16 19:11 UTC &middot; rebuilds daily ~5:00am ET &middot;
+  thumbs are saved in your browser; click <em>Export feedback</em> to tune ranking.
+</footer>
+<script>
+const KEY = 'rmb_feedback';
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { return {}; } }
+function save(o) { localStorage.setItem(KEY, JSON.stringify(o)); }
+function vote(id, source, dir, btn) {
+  const o = load();
+  if (o[id] && o[id].vote === dir) { delete o[id]; }
+  else { o[id] = { id, source, vote: dir, ts: new Date().toISOString() }; }
+  save(o);
+  const card = btn.closest('.card');
+  card.querySelectorAll('.vote button').forEach(b => b.classList.remove('voted'));
+  if (o[id]) btn.classList.add('voted');
+}
+function exportFeedback() {
+  const o = load();
+  const votes = Object.values(o);
+  const blob = new Blob([JSON.stringify({votes}, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'feedback.json';
+  a.click();
+}
+// Re-apply any votes stored locally that the server build didn't yet know about.
+window.addEventListener('DOMContentLoaded', () => {
+  const o = load();
+  document.querySelectorAll('.card').forEach(card => {
+    const id = card.dataset.id;
+    if (o[id]) {
+      const sel = o[id].vote === 'up' ? '.up' : '.down';
+      const b = card.querySelector('.vote ' + sel);
+      if (b) b.classList.add('voted');
+    }
+  });
+});
+</script>
+</body>
+</html>
